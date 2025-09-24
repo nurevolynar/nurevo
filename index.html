@@ -6,7 +6,6 @@
 <title>Nurevo Lynar</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  /* Basic layout */
   body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
@@ -17,7 +16,7 @@
 
   a { text-decoration: none; font-weight: bold; }
 
-  /* Animated background */
+  /* Animated gradient background */
   .animated-bg {
     position: fixed;
     top:0; left:0; width:100%; height:100%; z-index:-1;
@@ -25,30 +24,57 @@
     background-size: 1000% 1000%;
     animation: gradientBG 20s ease infinite;
   }
-
   @keyframes gradientBG {
     0% {background-position:0% 50%;}
     50% {background-position:100% 50%;}
     100% {background-position:0% 50%;}
   }
 
-  /* Header */
+  /* Smooth fade-in */
+  section {
+    padding: 100px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+  }
+
+  section h2 {
+    font-size: 2.8em;
+    color: #ff7f50;
+    margin-bottom: 20px;
+  }
+  section p {
+    max-width: 700px;
+    margin: 0 auto 20px;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #ffffff;
+  }
+
   header {
     text-align: center;
     padding: 120px 20px 60px;
   }
+  header img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+    animation: fadeInDown 1.5s ease forwards;
+  }
   header h1 {
-    font-size: 3.5em;
+    font-size: 3em;
     color: #ff7f50;
     margin: 0;
-    animation: fadeInDown 1.5s ease forwards;
+    animation: fadeInDown 2s ease forwards;
   }
   header p {
     font-size: 1.3em;
     color: #ffffff;
     margin: 20px 0 40px;
-    animation: fadeInDown 2s ease forwards;
+    animation: fadeInDown 2.5s ease forwards;
   }
+
   .buttons a {
     display: inline-block;
     margin: 10px;
@@ -63,28 +89,13 @@
     background: #ff7f50;
   }
 
-  /* Sections */
-  section {
-    padding: 100px 20px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease;
-  }
-  section h2 {
-    font-size: 2.8em;
-    color: #ff7f50;
-    margin-bottom: 30px;
-  }
-  section p {
-    max-width: 700px;
-    margin: 0 auto 20px;
-    font-size: 1.1em;
-    line-height: 1.6;
+  .timer {
+    font-size: 1.5em;
     color: #ffffff;
+    margin-top: 20px;
+    letter-spacing: 2px;
   }
 
-  /* Header fade-in */
   @keyframes fadeInDown {
     0% { opacity: 0; transform: translateY(-50px);}
     100% { opacity: 1; transform: translateY(0);}
@@ -97,24 +108,26 @@
 <div class="animated-bg"></div>
 
 <header>
+  <img src="77b97107-0d42-4a5a-9741-4b681de1a662.png" alt="Bitcoin Logo">
   <h1>Nurevo Lynar</h1>
-  <p>Not a crypto enthusiast, but an amazing project is on its way! 🚀</p>
+  <p>Crypto enthusiast 🚀 Big project coming soon. The time is running!</p>
   <div class="buttons">
-    <a href="https://instagram.com/nurevo.lynar" target="_blank">Instagram</a>
-    <a href="https://linktr.ee/nurevo" target="_blank">Linktree</a>
+    <a href="https://instagram.com/nurevolynar" target="_blank">Instagram</a>
+    <a href="https://linktr.ee/nurevolynar" target="_blank">Linktree</a>
     <a href="mailto:nurevo@example.com">Contact</a>
   </div>
+  <div class="timer" id="timer">Time elapsed: 0s</div>
 </header>
 
 <section>
   <h2>About My Project</h2>
-  <p>My project is still in the works, but it will be colorful, modern, and exciting. I’m building it step by step to make sure it’s ready to launch in style.</p>
-  <p>Here you’ll learn the essentials of crypto and creative projects – explained simply and clearly, no confusing jargon.</p>
+  <p>My project is under development, colorful, modern, and highly exciting. Step by step, it’s being prepared for a big launch!</p>
+  <p>Here you’ll learn important crypto basics and see creative projects come to life. Stay tuned!</p>
 </section>
 
 <section>
   <h2>Stay Updated</h2>
-  <p>Follow me on Instagram or check my Linktree to get the latest updates as soon as my project launches!</p>
+  <p>Follow me on Instagram or check my Linktree to get the latest updates as soon as the project launches!</p>
 </section>
 
 <script>
@@ -129,6 +142,13 @@
       }
     });
   });
+
+  // Timer that always runs up
+  let seconds = 0;
+  setInterval(() => {
+    seconds++;
+    document.getElementById('timer').textContent = `Time elapsed: ${seconds}s`;
+  }, 1000);
 </script>
 
 </body>
